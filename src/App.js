@@ -1,11 +1,7 @@
 import useNotes from "./hooks/useNotes";
-import Button from "@mui/material/Button";
-import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import AddIcon from "@mui/icons-material/Add";
 import Drawer from "@mui/material/Drawer";
 import React, { useEffect, useState } from "react";
 import AddNote from "./components/Modal";
@@ -16,10 +12,6 @@ const drawerWidth = 240;
 function App() {
   const { signUp, userId, notes, loading, addNote, getMyNotes } = useNotes();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  if (loading) {
-    return <CircularProgress />;
-  }
 
   return (
     <>
@@ -94,7 +86,7 @@ function App() {
                       </div>
                     ))
                   ) : (
-                    <div>Loading...</div>
+                    <CircularProgress />
                   )}
                 </Grid>
               </Grid>
